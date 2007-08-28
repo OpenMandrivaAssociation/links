@@ -133,7 +133,6 @@ EOF
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
 cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
-Encoding=UTF-8
 Name=Links
 Comment="Lynx-like text/graphic Web browser"
 Exec=/usr/bin/links-graphic /usr/share/doc/HTML/index.html
