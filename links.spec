@@ -1,5 +1,5 @@
 %define version 2.1
-%define rel 0.%pre.14
+%define rel 0.%pre.15
 %define pre pre18
 
 Summary:	Lynx-like text WWW browser
@@ -136,7 +136,7 @@ cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 Name=Links
 Comment="Lynx-like text/graphic Web browser"
 Exec=/usr/bin/links-graphic /usr/share/doc/HTML/index.html
-Icon=%{name}
+Icon=web_browser_section
 Terminal=false
 Type=Application
 Categories=Network;WebBrowser;X-MandrivaLinux-Internet-WebBrowsers;
