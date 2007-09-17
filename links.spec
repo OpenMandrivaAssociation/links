@@ -86,12 +86,13 @@ Common files for links and links-graphic
 %patch14 -p1 -b .automake18
 %patch21 -p1
 %patch22 -p1 -b .64bit-fixes
-%patch23 -p1 -z .pix
+%patch23 -p1
+%patch24 -p1
 
 #rm -f missing
 #ln -s /usr/share/automake-1.4/missing missing
 
-FORCE_AUTOCONF_2_5=1 ACLOCAL=aclocal-1.9 AUTOMAKE=automake-1.9 autoreconf --force --install
+autoreconf --force --install
 
 %build
 %configure2_5x --enable-javascript
