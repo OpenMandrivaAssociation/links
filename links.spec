@@ -26,7 +26,7 @@ Patch23:	links-2.1pre18-dont-have-two-assocations-with-same-label--otherwise-one
 Patch24:	links-2.1pre18-CVE-2006-5925--disable-SMB.patch
 
 URL:		http://atrey.karlin.mff.cuni.cz/~clock/twibright/links/
-BuildRequires:	XFree86-devel
+BuildRequires:	X11-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libtiff-devel
 BuildRequires:	ncurses-devel => 5.0
