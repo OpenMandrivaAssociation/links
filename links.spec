@@ -1,6 +1,6 @@
 %define version 2.1
-%define rel 0.%pre.15
-%define pre pre18
+%define rel 0.%pre.1
+%define pre pre31
 
 Summary:	Lynx-like text WWW browser
 Name:		links
@@ -18,11 +18,11 @@ Patch7:		links-0.96-no-domain-security.patch
 Patch8:		links-current-color-by-default--and-vt100-frames.patch
 Patch10:	links-2.0pre1-be-graphic-when-called-_links-graphic_.patch
 Patch11:	links-2.0pre1-convert-old-bookmarks-in-new-format.patch
-Patch12:	links-2.1pre17-gz.patch
+Patch12:	links-2.1pre31-gz.patch
 Patch14:	links-2.1pre17-automake.patch
 Patch21:	links-2.1pre17-fix-segfault-on-loading-cookies.patch
 Patch22:	links-2.1pre2-64bit-fixes.patch
-Patch23:	links-2.1pre18-dont-have-two-assocations-with-same-label--otherwise-one-cant-override-shared-config.patch
+Patch23:	links-2.1pre31-dont-have-two-assocations-with-same-label--otherwise-one-cant-override-shared-config.patch
 Patch24:	links-2.1pre18-CVE-2006-5925--disable-SMB.patch
 
 URL:		http://atrey.karlin.mff.cuni.cz/~clock/twibright/links/
