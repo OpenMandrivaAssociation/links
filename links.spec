@@ -6,7 +6,7 @@ Summary:	Lynx-like text WWW browser
 Name:		links
 Version:	%{version}
 Release:	%mkrel %rel
-License:	GPL
+License:	GPLv2+
 Group:		Networking/WWW
 
 Source0:	http://atrey.karlin.mff.cuni.cz/~clock/twibright/links/download/%name-%version%pre.tar.bz2
@@ -119,28 +119,16 @@ install links-graphic links-text %buildroot%{_bindir}
 
 install -D -m 644 %SOURCE4 %buildroot/etc/links.cfg
 
-install -d %buildroot/%_menudir/
-cat << EOF >$RPM_BUILD_ROOT%{_menudir}/%{name}-graphic
-?package(%{name}-graphic):  \
-  command="/usr/bin/links-graphic /usr/share/doc/HTML/index.html" \
-  needs="X11" \
-  icon="web_browser_section.png" \
-  section="Internet/Web Browsers" \
-  title="Links" \
-  longtitle="Lynx-like text/graphic Web browser" \
-  xdg="true"
-EOF
-
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
 cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
 Name=Links
-Comment="Lynx-like text/graphic Web browser"
+Comment=Lynx-like text/graphic Web browser
 Exec=/usr/bin/links-graphic /usr/share/doc/HTML/index.html
 Icon=web_browser_section
 Terminal=false
 Type=Application
-Categories=Network;WebBrowser;X-MandrivaLinux-Internet-WebBrowsers;
+Categories=Network;WebBrowser;
 EOF
 
 
@@ -185,7 +173,6 @@ fi
 %defattr(-,root,root)
 %{_bindir}/links-graphic
 %{_datadir}/applications/*
-%{_menudir}/%{name}-graphic
 
 %files common
 %defattr(-,root,root)
