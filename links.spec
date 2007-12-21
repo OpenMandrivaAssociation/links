@@ -35,6 +35,7 @@ BuildRequires:	directfb-devel >= 0.9.17
 BuildRequires:	automake1.9
 Provides:	webclient
 Requires:	links-common = %{version}
+BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 %description
 Links is a text based WWW browser, at first look similar to Lynx, but
