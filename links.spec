@@ -25,7 +25,7 @@ Patch22:	links-2.1pre2-64bit-fixes.patch
 Patch23:	links-2.1pre31-dont-have-two-assocations-with-same-label--otherwise-one-cant-override-shared-config.patch
 Patch24:	links-2.1pre18-CVE-2006-5925--disable-SMB.patch
 
-URL:		http://atrey.karlin.mff.cuni.cz/~clock/twibright/links/
+URL:		http://links.twibright.com/
 BuildRequires:	X11-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libtiff-devel
