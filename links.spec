@@ -1,6 +1,6 @@
 %define version 2.1
 %define rel 0.%pre.1
-%define pre pre31
+%define pre pre34
 
 Summary:	Lynx-like text WWW browser
 Name:		links
