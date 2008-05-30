@@ -1,5 +1,5 @@
 %define version 2.1
-%define rel 0.%pre.1
+%define rel 0.%pre.2
 %define pre pre36
 
 Summary:	Lynx-like text WWW browser
