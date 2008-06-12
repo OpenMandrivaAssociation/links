@@ -154,12 +154,16 @@ if [ "$1" = "0" ]; then
 fi
 
 %post graphic
+%if %mdkversion < 200900
 %{update_menus}
+%endif
 
 update-alternatives --install /usr/bin/links links /usr/bin/links-graphic 20
 
 %postun graphic
+%if %mdkversion < 200900
 %{clean_menus}
+%endif
 
 if [ "$1" = "0" ]; then
   update-alternatives --remove links /usr/bin/links-graphic
