@@ -1,6 +1,5 @@
-%define version 2.1
-%define rel 0.%pre.2
-%define pre pre36
+%define version 2.2
+%define rel 1
 
 Summary:	Lynx-like text WWW browser
 Name:		links
@@ -9,7 +8,7 @@ Release:	%mkrel %rel
 License:	GPLv2+
 Group:		Networking/WWW
 
-Source0:	http://atrey.karlin.mff.cuni.cz/~clock/twibright/links/download/%name-%version%pre.tar.bz2
+Source0:	http://atrey.karlin.mff.cuni.cz/~clock/twibright/links/download/%name-%version.tar.bz2
 Source4:	links.cfg
 Patch1:		links-2.1pre18-no-flashy-white.patch
 Patch3:		links-0.96-no-weird-unhx-ing-of-command-line-args.patch
@@ -74,7 +73,7 @@ Conflicts:	links < 2.1-0.pre18.5mdk, links-graphic < 2.1-0.pre18.5mdk
 Common files for links and links-graphic
 
 %prep
-%setup  -q -n %name-%version%pre
+%setup  -q -n %name-%version
 %patch1 -p1
 %patch3 -p1
 %patch6 -p1
