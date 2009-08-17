@@ -1,5 +1,5 @@
 %define version 2.2
-%define rel 3
+%define rel 4
 
 Summary:	Lynx-like text WWW browser
 Name:		links
@@ -15,8 +15,8 @@ Patch3:		links-0.96-no-weird-unhx-ing-of-command-line-args.patch
 Patch6:		cookies-save-0.96.patch
 Patch7:		links-0.96-no-domain-security.patch
 Patch8:		links-current-color-by-default--and-vt100-frames.patch
-Patch10:	links-2.0pre1-be-graphic-when-called-_links-graphic_.patch
-Patch11:	links-2.0pre1-convert-old-bookmarks-in-new-format.patch
+Patch10:	links-2.2-be-graphic-when-called-_links-graphic_.patch
+Patch11:	links-2.2-convert-old-bookmarks-in-new-format.patch
 Patch12:	links-2.1pre31-gz.patch
 Patch14:	links-2.1pre17-automake.patch
 Patch21:	links-2.1pre17-fix-segfault-on-loading-cookies.patch
@@ -79,8 +79,8 @@ Common files for links and links-graphic
 %patch6 -p1
 %patch7 -p1
 %patch8 -p1
-%patch10 -p1
-%patch11 -p1
+%patch10 -p1 -b .be-graphic-when-called-_links-graphic_
+%patch11 -p1 -b .convert-old-bookmarks-in-new-format
 %patch12 -p1 -b .gzip
 %patch14 -p1 -b .automake18
 %patch21 -p1
