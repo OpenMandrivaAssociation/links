@@ -1,5 +1,5 @@
 %define version 2.2
-%define rel 4
+%define rel 5
 
 Summary:	Lynx-like text WWW browser
 Name:		links
