@@ -25,13 +25,16 @@ Patch23:	links-2.1pre31-dont-have-two-assocations-with-same-label--otherwise-one
 Patch24:	links-2.1pre18-CVE-2006-5925--disable-SMB.patch
 
 URL:		http://links.twibright.com/
-BuildRequires:	X11-devel
+BuildRequires:	libx11-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libtiff-devel
-BuildRequires:	ncurses-devel => 5.0
 BuildRequires:	openssl-devel
+BuildRequires:	jpeg-devel
+BuildRequires:	bzip2-devel
+BuildRequires:	gpm-devel
+BuildRequires:	zlib-devel
+BuildRequires:	svgalib-devel
 BuildRequires:	directfb-devel >= 0.9.17
-BuildRequires:	automake1.9
 Provides:	webclient
 Requires:	links-common = %{version}
 BuildRoot:	%{_tmppath}/%{name}-%{version}-root
@@ -88,13 +91,9 @@ Common files for links and links-graphic
 %patch23 -p1
 %patch24 -p1
 
-#rm -f missing
-#ln -s /usr/share/automake-1.4/missing missing
-
-autoreconf --force --install
-
 %build
-%configure2_5x --enable-javascript
+autoreconf -fi
+%configure2_5x
 (cd Unicode ; LC_ALL=C ./gen )
 %make
 
@@ -103,7 +102,7 @@ cp -f links links-text
 # Needed to fix linkage problem
 #rm -f bfu.o dip.o lru.o x.o framebuffer.o terminal.o kbd.o links_icon.o
 make clean
-%configure2_5x --enable-graphics --enable-javascript
+%configure2_5x --enable-graphics
 %make
 
 cp -f links links-graphic
