@@ -1,5 +1,5 @@
-%define version 2.2
-%define rel 8
+%define version 2.6
+%define rel 1
 
 Summary:	Lynx-like text WWW browser
 Name:		links
@@ -10,19 +10,11 @@ Group:		Networking/WWW
 
 Source0:	http://atrey.karlin.mff.cuni.cz/~clock/twibright/links/download/%name-%version.tar.bz2
 Source4:	links.cfg
-Patch1:		links-2.1pre18-no-flashy-white.patch
 Patch3:		links-0.96-no-weird-unhx-ing-of-command-line-args.patch
 Patch6:		cookies-save-0.96.patch
-Patch7:		links-0.96-no-domain-security.patch
-Patch8:		links-current-color-by-default--and-vt100-frames.patch
-Patch10:	links-2.2-be-graphic-when-called-_links-graphic_.patch
-Patch11:	links-2.2-convert-old-bookmarks-in-new-format.patch
-Patch12:	links-2.1pre31-gz.patch
-Patch14:	links-2.1pre17-automake.patch
 Patch21:	links-2.1pre17-fix-segfault-on-loading-cookies.patch
 Patch22:	links-2.1pre2-64bit-fixes.patch
 Patch23:	links-2.1pre31-dont-have-two-assocations-with-same-label--otherwise-one-cant-override-shared-config.patch
-Patch24:	links-2.1pre18-CVE-2006-5925--disable-SMB.patch
 
 URL:		http://links.twibright.com/
 BuildRequires:	libx11-devel
@@ -77,21 +69,17 @@ Common files for links and links-graphic
 
 %prep
 %setup  -q -n %name-%version
-%patch1 -p1
 %patch3 -p1
 %patch6 -p1
-%patch7 -p1
-%patch8 -p1
-%patch10 -p1 -b .be-graphic-when-called-_links-graphic_
-%patch11 -p1 -b .convert-old-bookmarks-in-new-format
-%patch12 -p1 -b .gzip
-%patch14 -p1 -b .automake18
 %patch21 -p1
 %patch22 -p1 -b .64bit-fixes
 %patch23 -p1
-%patch24 -p1
 
 %build
+# error: conditional "am__fastdepCXX" was never defined (for eautoreconf)
+# Upstream configure produced by broken autoconf-2.13. This also fixes
+# toolchain detection.
+sed -i -e '/AC_PROG_CXX/s:#::' configure.in || die
 autoreconf -fi
 %configure2_5x
 (cd Unicode ; LC_ALL=C ./gen )
@@ -178,7 +166,7 @@ fi
 
 %files common
 %defattr(-,root,root)
-%doc AUTHORS BUGS ChangeLog README SITES TODO 
+%doc AUTHORS ChangeLog README SITES
 %config(noreplace) /etc/links.cfg
 %{_mandir}/*/*
 
