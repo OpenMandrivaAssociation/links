@@ -1,0 +1,14 @@
+--- links-0.96/session.c.pix	Sat Jun  2 00:39:00 2001
++++ links-0.96/session.c	Mon Jul 23 13:37:26 2001
+@@ -1228,9 +1228,11 @@
+ 
+ static inline int unhx(unsigned char a)
+ {
++#if 0
+ 	if (a >= '0' && a <= '9') return a - '0';
+ 	if (a >= 'A' && a <= 'F') return a - 'A' + 10;
+ 	if (a >= 'a' && a <= 'f') return a - 'a' + 10;
++#endif
+ 	return -1;
+ }
+ 

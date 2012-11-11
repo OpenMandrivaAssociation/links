@@ -1,0 +1,32 @@
+--- links-2.1pre31/types.c.pix	2007-12-09 16:45:27.000000000 +0800
++++ links-2.1pre31/types.c	2007-12-09 16:48:12.000000000 +0800
+@@ -392,11 +392,11 @@
+ 
+ void update_assoc(struct assoc *new)
+ {
++	struct assoc *repl_found = 0;
+ 	struct assoc *repl;
+ 	if (!new->label[0] || !new->ct[0] || !new->prog[0]) return;
+ 	foreach(repl, assoc) if (!strcmp(repl->label, new->label)
+ 			      && !strcmp(repl->ct, new->ct)
+-			      && !strcmp(repl->prog, new->prog)
+ 			      && repl->block == new->block
+ 			      && repl->cons == new->cons
+ 			      && repl->xwin == new->xwin
+@@ -404,11 +404,13 @@
+ 			      && repl->accept_http == new->accept_http
+ 			      && repl->accept_ftp == new->accept_ftp
+ 			      && repl->system == new->system) {
++		mem_free(repl->ct);
++		mem_free(repl->prog);
++		mem_free(repl->label);
+ 		del_from_list(repl);
+-		add_to_list(assoc, repl);
+-		return;
++		repl_found = repl;
+ 	}
+-	repl = mem_calloc(sizeof(struct assoc));
++	repl = repl_found ? repl_found : mem_calloc(sizeof(struct assoc));
+ 	add_to_list(assoc, repl);
+ 	repl->label = stracpy(new->label);
+ 	repl->ct = stracpy(new->ct);
