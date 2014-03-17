@@ -1,7 +1,7 @@
 diff -ru links-0.96/cookies.c links-0.96+cookies-save/cookies.c
 --- links-0.96/cookies.c	Mon Sep  3 07:19:37 2001
 +++ links-0.96+cookies-save/cookies.c	Mon Sep  3 07:18:42 2001
-@@ -276,15 +276,99 @@
+@@ -276,15 +276,97 @@
  
  void init_cookies(void)
  {
@@ -59,8 +59,6 @@ diff -ru links-0.96/cookies.c links-0.96+cookies-save/cookies.c
 +		
 +		cookie->secure = atoi(p);
 +		
-+		cookie->id = cookie_id++;
-+
 +		accept_cookie(cookie);
 +
 +		continue;
@@ -80,7 +78,7 @@ diff -ru links-0.96/cookies.c links-0.96+cookies-save/cookies.c
 +	
  	free_list(c_domains);
 -	/* !!! FIXME: save cookies */
--	foreach (c, cookies) free_cookie(c);
+-	foreach (c, all_cookies) free_cookie(c);
 +
 +	cookfile = stracpy(links_home);
 +	if (! cookfile) return;
@@ -90,7 +88,7 @@ diff -ru links-0.96/cookies.c links-0.96+cookies-save/cookies.c
 +	mem_free(cookfile);
 +	if (fp == NULL) return;
 +	
-+	foreach (c, cookies) {
++	foreach (c, all_cookies) {
 +		if (c->expires && ! cookie_expired(c))
 +			fprintf(fp, "%s %s %s %s %s %d %d\n", c->name, c->value,
 +			    c->server?c->server:(unsigned char *)"", c->path?c->path:(unsigned char *)"",
@@ -101,6 +99,6 @@ diff -ru links-0.96/cookies.c links-0.96+cookies-save/cookies.c
 +
 +	fclose(fp);
 +	
- 	free_list(cookies);
+ 	free_list(all_cookies);
  }
  

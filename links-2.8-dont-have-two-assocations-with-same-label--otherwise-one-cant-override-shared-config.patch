@@ -1,0 +1,32 @@
+--- links-2.8/types.c.pix	2013-09-23 10:36:09.367700060 -0400
++++ links-2.8/types.c	2013-09-23 10:38:36.337870121 -0400
+@@ -374,11 +374,11 @@
+ 
+ void update_assoc(struct assoc *neww)
+ {
++	struct assoc *repl_found = 0;
+ 	struct assoc *repl;
+ 	if (!neww->label[0] || !neww->ct[0] || !neww->prog[0]) return;
+ 	foreach(repl, assoc) if (!strcmp(cast_const_char repl->label, cast_const_char neww->label)
+ 			      && !strcmp(cast_const_char repl->ct, cast_const_char neww->ct)
+-			      && !strcmp(cast_const_char repl->prog, cast_const_char neww->prog)
+ 			      && repl->block == neww->block
+ 			      && repl->cons == neww->cons
+ 			      && repl->xwin == neww->xwin
+@@ -386,11 +386,13 @@
+ 			      && repl->accept_http == neww->accept_http
+ 			      && repl->accept_ftp == neww->accept_ftp
+ 			      && repl->system == neww->system) {
++		mem_free(repl->ct);
++		mem_free(repl->prog);
++		mem_free(repl->label);
+ 		del_from_list(repl);
+-		add_to_list(assoc, repl);
+-		return;
++		repl_found = repl;
+ 	}
+-	repl = mem_calloc(sizeof(struct assoc));
++	repl = repl_found ? repl_found : mem_calloc(sizeof(struct assoc));
+ 	repl->label = stracpy(neww->label);
+ 	repl->ct = stracpy(neww->ct);
+ 	repl->prog = stracpy(neww->prog);

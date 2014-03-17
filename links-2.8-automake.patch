@@ -1,0 +1,18 @@
+--- links-2.8/configure.in.automake	2013-09-23 10:51:39.689668906 -0400
++++ links-2.8/configure.in	2013-09-23 10:52:23.509775835 -0400
+@@ -19,6 +19,7 @@
+ AC_PROG_CC
+ 
+ dnl AC_PROG_CXX
++AC_PROG_CXX
+ dnl AC_PROG_AWK
+ dnl AM_PROG_LEX
+ dnl AC_PROG_YACC
+@@ -1116,7 +1117,6 @@
+ 			AC_CHECK_LIB(syllable, main)
+ 		fi
+ 		if test "$ac_cv_lib_atheos_main" = yes -o "$ac_cv_lib_syllable_main" = yes; then
+-			AC_PROG_CXX
+ 			AC_DEFINE(GRDRV_ATHEOS)
+ 			drivers="$drivers ATHEOS"
+ 			cf_have_atheos=yes
