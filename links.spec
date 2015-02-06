@@ -1,7 +1,7 @@
 Summary:	Lynx-like text WWW browser
 Name:		links
 Version:	2.8
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Networking/WWW
 Url:		http://links.twibright.com/
