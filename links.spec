@@ -1,6 +1,6 @@
 Summary:	Lynx-like text WWW browser
 Name:		links
-Version:	2.29
+Version:	2.30
 Release:	1
 License:	GPLv2+
 Group:		Networking/WWW
