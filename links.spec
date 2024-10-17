@@ -4,7 +4,7 @@ Version:	2.30
 Release:	1
 License:	GPLv2+
 Group:		Networking/WWW
-Url:		http://links.twibright.com/
+Url:		https://links.twibright.com/
 Source0:	http://links.twibright.com/download/links-%{version}.tar.bz2
 Source4:	links.cfg
 Patch3:		links-0.96-no-weird-unhx-ing-of-command-line-args.patch
