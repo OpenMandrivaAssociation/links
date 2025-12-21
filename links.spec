@@ -9,6 +9,11 @@ Source0:	http://links.twibright.com/download/links-%{version}.tar.bz2
 Source4:	links.cfg
 Patch3:		links-0.96-no-weird-unhx-ing-of-command-line-args.patch
 Patch14:	links-2.8-automake.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	bzip2-devel
 BuildRequires:	gpm-devel
 BuildRequires:	jpeg-devel
